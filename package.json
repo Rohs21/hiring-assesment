@@ -106,6 +106,9 @@
 		"npm": "please-use-pnpm",
 		"yarn": "please-use-pnpm"
 	},
+	"prisma": {
+		"seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
+	},
 	"pnpm": {
 		"overrides": {
 			"@types/react": "19.1.5",
