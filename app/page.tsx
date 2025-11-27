@@ -7,6 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
+import { Switch } from '@/components/ui/switch';
 
 export default function EmployeesPage() {
 	const [page, setPage] = useState(1);
@@ -57,6 +58,7 @@ export default function EmployeesPage() {
 							<TableHead>Email</TableHead>
 							<TableHead>Role</TableHead>
 							<TableHead>Department</TableHead>
+							<TableHead>Status</TableHead>
 							<TableHead>Joined</TableHead>
 						</TableRow>
 					</TableHeader>
@@ -77,13 +79,16 @@ export default function EmployeesPage() {
 										<Skeleton className='h-4 w-[100px]' />
 									</TableCell>
 									<TableCell>
+										<Skeleton className='h-4 w-[50px]' />
+									</TableCell>
+									<TableCell>
 										<Skeleton className='h-4 w-[100px]' />
 									</TableCell>
 								</TableRow>
 							))
 						) : employees.length === 0 ? (
 							<TableRow>
-								<TableCell colSpan={5} className='h-24 text-center'>
+								<TableCell colSpan={6} className='h-24 text-center'>
 									No results.
 								</TableCell>
 							</TableRow>
@@ -94,6 +99,9 @@ export default function EmployeesPage() {
 									<TableCell>{employee.email}</TableCell>
 									<TableCell>{employee.role}</TableCell>
 									<TableCell>{employee.department}</TableCell>
+									<TableCell>
+										<Switch />
+									</TableCell>
 									<TableCell>{new Date(employee.createdAt).toLocaleDateString()}</TableCell>
 								</TableRow>
 							))
