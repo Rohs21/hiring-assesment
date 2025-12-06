@@ -19,7 +19,15 @@ An "Employees" page that lists employees with the following functionality:
     ```bash
     pnpm db:generate
     ```
-3.  Start the development server:
+3.  Add the database URL to the .env file:
+    ```bash
+    DATABASE_URL=mongodb://localhost:27017/employees # Replace with your MongoDB URL
+    ```
+4.  Seed the database (MongoDB):
+    ```bash
+    pnpm db:seed
+    ```
+5.  Start the development server:
     ```bash
     pnpm dev
     ```
