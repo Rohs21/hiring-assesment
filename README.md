@@ -8,18 +8,26 @@ An "Employees" page that lists employees with the following functionality:
 -   Search by name or email
 -   Filter by department
 -   Display employee details in a table
+-   Toggle employee status (active/inactive)
 
 ## Setup
 1.  Install dependencies:
     ```bash
     pnpm install
     ```
-2.  Seed the database (MongoDB):
+2.  Generate the schema (MongoDB):
     ```bash
-    npx prisma db push
-    npx prisma db seed
+    pnpm db:generate
     ```
-3.  Start the development server:
+3.  Add the database URL to the .env file:
+    ```bash
+    DATABASE_URL=mongodb://localhost:27017/employees # Replace with your MongoDB URL
+    ```
+4.  Seed the database (MongoDB):
+    ```bash
+    pnpm db:seed
+    ```
+5.  Start the development server:
     ```bash
     pnpm dev
     ```
@@ -29,15 +37,18 @@ The following files contain known issues that you need to address:
 
 -   `app/api/employees/route.ts`: API route for fetching employees.
 -   `hooks/useEmployees.ts`: Custom hook for managing employee data fetching.
--   `app/employees/page.tsx`: The main page component.
--   `prisma/seed.ts`: Seed script (use this to populate your database).
+-   `app/page.tsx`: The main page component.
 
 ## Instructions
--   **Work on this branch**. Do not switch branches.
 -   Identify the bugs in the frontend and backend.
 -   Fix the bugs to meet the feature requirements.
 -   Ensure the code is robust and handles edge cases appropriately.
 -   Pay attention to performance and best practices (e.g., proper dependency arrays, error handling).
 
-Good luck!
+## Functionality Which contains bugs
+- Searching
+- Department Filtering
+- Pagination
+- Employee Status Toggle
 
+Good luck!
