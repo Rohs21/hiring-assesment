@@ -29,7 +29,7 @@ export function useEmployees({ page, limit, search, department }: UseEmployeesPr
 				setEmployees(data.data);
 				setLoading(false);
 			});
-	}, [page]);
+	}, [page, limit, search, department]);
 
 	return { employees, loading };
 }
